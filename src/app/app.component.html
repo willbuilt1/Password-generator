@@ -15,7 +15,9 @@
   <input type="checkbox" (change)='onChangeUseSymbols()'>
   <label>Use Symbols</label>
 </div>
-<button (click) = 'onButtonClick()'>Generate</button>
+<button 
+  [disabled] = '!(length && (useLetters||useNumbers||useSymbols))'
+  (click) = 'onButtonClick()'>Generate</button>
 <div>
   <label>Your Password</label>
   <input type="text" [value]="password">

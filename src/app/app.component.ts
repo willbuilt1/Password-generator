@@ -12,11 +12,25 @@ export class AppComponent {
   useSymbols = false;
   length = 0;
 
+  
+
   onChangeLength(value: string){
-    const parsedValue = parseInt(value);
+    function filterInt(value) {
+      if (/^[-+]?(\d+|Infinity)$/.test(value)) {
+        return Number(value)
+      } else {
+        return NaN
+      }
+    }
+
+    const parsedValue = filterInt(value);
+    console.log(parsedValue);
     if (!isNaN(parsedValue)){
       this.length = parsedValue;
-    } 
+    } else{
+      this.length = 0;
+
+    }
   }
 
   onChangeUseLetters(){
