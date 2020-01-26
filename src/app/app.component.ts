@@ -29,7 +29,6 @@ export class AppComponent {
       this.length = parsedValue;
     } else{
       this.length = 0;
-
     }
   }
 
